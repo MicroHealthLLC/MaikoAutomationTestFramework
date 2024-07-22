@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MaikoTestBase {
         public static WebDriver driver;
@@ -15,7 +16,9 @@ public class MaikoTestBase {
         System.out.println( "Hello Maiko Application!" );
         String chromePath= "C:\\MaikoAutomationFrameWork\\chromedriver-win64\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", chromePath);
-        driver= new ChromeDriver();
+        ChromeOptions optobj = new ChromeOptions();
+        optobj.addArguments("--headless=new");
+        driver= new ChromeDriver(optobj);
         driver.manage().window().maximize();
         try {
             Thread.sleep(3000);

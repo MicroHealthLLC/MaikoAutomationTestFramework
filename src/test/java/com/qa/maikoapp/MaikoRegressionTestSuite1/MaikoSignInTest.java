@@ -33,43 +33,55 @@ public class MaikoSignInTest extends MaikoTestBase{
         maikosigninpageobj = new SignInPage();
     }
     @Test(priority = 1)
+    public void canceluseraggreementTest() throws IOException, InterruptedException{
+        maikosigninpageobj = new SignInPage();
+        maikosigninpageobj.cacelUseragrreement();
+        test.pass("Cancel the user aggreement");
+    }
+    @Test(priority = 2)
+    public void useraggreementtest() throws IOException, InterruptedException{
+        maikosigninpageobj = new SignInPage();
+        maikosigninpageobj.acceptuseraggreement();
+        test.pass("Successfully accept the useraggreement for the MaikoApp");
+    }
+    @Test(priority = 3)
     public void userAbleToSingInMaikoAppTest() throws InterruptedException, IOException{
         maikosigninpageobj = new SignInPage();
         maikosigninpageobj.maikoSingin();
         test.pass("Successfully signIn to the MaikoApp");
     }
-    @Test(priority = 2)
+    @Test(priority = 4)
     public void accessAdminPanelTest() throws InterruptedException, IOException{
         adminpageobj = new AdminPage();
         adminpageobj.accessAdminPanel();
         test.pass("Successfully Access the Admin panel");
     }
-    @Test(priority = 3)
+    @Test(priority = 5)
     public void createNewassistantTest() throws InterruptedException, IOException{
         adminpageobj = new AdminPage();
         adminpageobj.createNewAssistant();
         test.pass("Successfully Created a new Assistant");
     }
-    @Test(priority = 4)
+    @Test(priority = 6)
     public void searchCreatedAssistantTest() throws InterruptedException, IOException{
         adminpageobj = new AdminPage();
         adminpageobj.searchCreatedAssistant();
         test.pass("Successfully searched a Created new Assistant");
     }
-    @Test(priority = 5)
+    @Test(priority = 7)
     public void editedcreatedassistantTest() throws InterruptedException, IOException{
         adminpageobj = new AdminPage();
         adminpageobj.editcreatedassistant();
         test.pass("Successfully Updated a new Assistant");
 
     }
-    @Test(priority = 6)
+    @Test(priority = 8)
     public void deletecreatedAssistant() throws InterruptedException, IOException{
         adminpageobj = new AdminPage();
         adminpageobj.deleteAssistant();
         test.pass("Successfully delete the assistant ");
     }
-    @Test(priority = 7)
+    @Test(priority = 9)
     public void logout() throws IOException{
         //maikosigninpageobj = new SignInPage();
         maikosigninpageobj.maikoLogout();
