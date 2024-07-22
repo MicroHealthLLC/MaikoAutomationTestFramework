@@ -77,8 +77,8 @@ public class MaikoSignInTest extends MaikoTestBase{
     }
     @AfterTest
     public void closeMaikoApp(){
-    //driver.close();
-    //test.pass("Close the MaikoApp and Browser");
+    driver.close();
+    test.pass("Close the MaikoApp and Browser");
     extent.flush();
     }
     
