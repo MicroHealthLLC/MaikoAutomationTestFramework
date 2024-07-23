@@ -18,6 +18,8 @@ public class SignInPage extends MaikoTestBase {
 WebElement useragreementlink;
 @FindBy(xpath = "/html/body/div/div/div[2]/div/div/div[3]/div[2]/div[2]/button[1]")
 WebElement acceptuseragreement;
+@FindBy(xpath = "//*[@class='action-btn bg-gray-400 hover:bg-gray-500 focus:ring-2 focus:ring-gray-600']")
+WebElement canceluseragreementbutton;
 @FindBy(xpath = "//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div[1]/div/div/button")
 WebElement clickonuserinternalauthentication;
 @FindBy(xpath = "//input[@name='email']")
@@ -28,14 +30,22 @@ WebElement enterPassword;
 WebElement clickonLoginbutton;
 @FindBy(xpath = "/html/body/div[1]/div/div[2]/div/main/div/div[1]/div/header/div/div/span/button")
 WebElement clickonLogOutbutton;
-
-public void maikoSingin() throws InterruptedException, IOException{
+public void acceptuseraggreement() throws IOException, InterruptedException{
     useragreementlink.click();
     MaikoUtil.captureScreenshot(driver,"UserAggreementpage.png");
     Thread.sleep(3000);
     acceptuseragreement.click();
     Thread.sleep(3000);
     MaikoUtil.captureScreenshot(driver,"AcceptAggreement.png");
+}
+public void cacelUseragrreement() throws IOException, InterruptedException{
+    useragreementlink.click();
+    MaikoUtil.captureScreenshot(driver,"UserAggreementpage.png");
+    Thread.sleep(3000);
+    canceluseragreementbutton.click();
+}
+
+public void maikoSingin() throws InterruptedException, IOException{
     clickonuserinternalauthentication.click();
     Thread.sleep(3000);
     enterUserEmailAddress.sendKeys("qa_tester@microhealthllc.com");
@@ -52,5 +62,17 @@ public void maikoLogout() throws IOException{
     clickonLogOutbutton.click();
     MaikoUtil.captureScreenshot(driver,"MaikoLogoutPage.png");
 } 
+
+public void unableToSignInInvalidEmailPassword() throws InterruptedException, IOException{
+    clickonuserinternalauthentication.click();
+    Thread.sleep(3000);
+    enterUserEmailAddress.sendKeys("qa_tester@microhealthllc.com");
+    Thread.sleep(3000);
+    MaikoUtil.captureScreenshot(driver,"Emailfield.png");
+    enterPassword.sendKeys("testpassword");
+    Thread.sleep(3000);
+    MaikoUtil.captureScreenshot(driver,"passwordfield.png");
+
+}
     
 }
