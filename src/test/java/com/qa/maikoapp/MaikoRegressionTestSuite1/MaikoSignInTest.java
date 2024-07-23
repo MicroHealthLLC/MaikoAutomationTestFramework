@@ -87,6 +87,14 @@ public class MaikoSignInTest extends MaikoTestBase{
         maikosigninpageobj.maikoLogout();
         test.pass("Successfully Logged out");
     }
+    @Test(priority = 10)
+        public void userUnabletoSignInwithInvalidEmailOrPasswordTest() throws InterruptedException, IOException{
+            maikosigninpageobj = new SignInPage();
+            maikosigninpageobj.acceptuseraggreement();
+            maikosigninpageobj.unableToSignInInvalidEmailPassword();
+            test.pass("User unable to signIn with invalid email or password into the Maiko App");
+        }
+    
     @AfterTest
     public void closeMaikoApp(){
     driver.close();

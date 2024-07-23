@@ -201,7 +201,6 @@ public class AdminPage extends MaikoTestBase {
      public void deleteAssistant() throws InterruptedException, IOException{
       clickonDeleteButton.click();
       Thread.sleep(3000);
-      //MaikoUtil.captureScreenshot(driver,"DeleteAssistantPage1.png");
       Alert alert = driver.switchTo().alert();
       alert.accept();
       Thread.sleep(3000);
