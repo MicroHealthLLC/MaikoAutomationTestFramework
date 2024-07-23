@@ -2,6 +2,7 @@ package com.qa.maikoapp.Pages;
 
 import java.io.IOException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -64,14 +65,22 @@ public void maikoLogout() throws IOException{
 } 
 
 public void unableToSignInInvalidEmailPassword() throws InterruptedException, IOException{
+    // acceptuseraggreement();
     clickonuserinternalauthentication.click();
     Thread.sleep(3000);
-    enterUserEmailAddress.sendKeys("qa_tester@microhealthllc.com");
+    enterUserEmailAddress.sendKeys("tester@microhealthllc.com");
     Thread.sleep(3000);
     MaikoUtil.captureScreenshot(driver,"Emailfield.png");
     enterPassword.sendKeys("testpassword");
     Thread.sleep(3000);
     MaikoUtil.captureScreenshot(driver,"passwordfield.png");
+    clickonLoginbutton.click();
+    Thread.sleep(3000);
+    Alert alert = driver.switchTo().alert();
+    alert.accept();
+    Thread.sleep(3000);
+    MaikoUtil.captureScreenshot(driver,"InvalidPassword PopUp window.png");
+    System.out.println("User is unable to SignIn with invalid email/password"); 
 
 }
     
